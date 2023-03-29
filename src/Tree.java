@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 
@@ -73,7 +74,7 @@ public class Tree<T> implements Iterable<T> {
         return null;
     }
 
-    public List<Node<T>> children(Node<T> node) {
+    public HashSet<Node<T>> children(Node<T> node) {
         return node.getChildren();
     }
 
@@ -81,8 +82,9 @@ public class Tree<T> implements Iterable<T> {
         return root;
     }
 
-    public List<Node<T>> children(Node<T> node, int index) {
-        return node.getChildren().get(index).getChildren();
+    @SuppressWarnings("unchecked")
+	public HashSet<Node<T>> children(Node<T> node, int index) {
+        return ((Node<T>) ((List<T>) node.getChildren()).get(index)).getChildren();
     }
 
     @Override
