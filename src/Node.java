@@ -1,8 +1,7 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
 
 
-class Node<T> {
+/*class Node<T> {
         private T data;
         private List<Node<T>> children;
 
@@ -26,4 +25,30 @@ class Node<T> {
         public void setData(T data) {
             this.data = data;
         }
+    }*/
+
+class Node<T> {
+    private T data;
+    private HashSet<Node<T>> children;
+
+    public Node(T data) {
+        this.data = data;
+        this.children = new HashSet<Node<T>>();
     }
+
+    public void addChild(Node<T> child) {
+        this.children.add(child);
+    }
+
+    public HashSet<Node<T>> getChildren() {
+        return this.children;
+    }
+
+    public T getData() {
+        return this.data;
+    }
+
+    public void setData(T data) {
+        this.data = data;
+    }
+}
