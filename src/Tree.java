@@ -48,6 +48,17 @@ public class Tree<T> implements Iterable<T> {
         positions(root, positions);
         return positions.iterator();
     }
+    
+    public void preorder(Node<T> p, HashSet<Node<T>> visited) {
+        if (p != null && !visited.contains(p)) {
+            visited.add(p);
+            System.out.println(p.getData()); // Visit current node
+            for (Node<T> child : p.getChildren()) {
+                preorder(child, visited); // Recursively perform preorder traversal on child
+            }
+        }
+    }
+
 
     private void positions(Node<T> node, List<Node<T>> positions) {
         positions.add(node);
